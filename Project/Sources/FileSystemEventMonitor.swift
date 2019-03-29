@@ -133,9 +133,9 @@ extension FileSystemEventFlag: CustomStringConvertible {
 			var	a1	=	[] as [String]
 			for i:UInt32 in 0..<16 {
 				let	v2	=	0b01 << i
-				let	ok	=	(v2 & v1) > 0
+				let	ok	=	(UInt32(v2) & v1) > 0
 				if ok {
-					let	s	=	NSStringFromFSEventStreamEventFlags(v2)!
+					let	s	=	NSStringFromFSEventStreamEventFlags(FSEventStreamEventFlags(v2))!
 					a1.append(s)
 				}
 			}
